@@ -16,20 +16,36 @@ gulp.task('clean', function (done) {
   del(['dev'], done);
 });
 
-gulp.task('build:angular2', function () {
-  var builder = new Builder({
-    paths: {
-      'angular2/*': 'node_modules/angular2/es6/prod/*.es6',
-      rx: 'node_modules/angular2/node_modules/rx/dist/rx.js'
-    },
+// gulp.task('build:angular2', function () {
+//   var builder = new Builder({
+//     paths: {
+//       'angular2/*': 'node_modules/angular2/es6/prod/*.es6',
+//       rx: 'node_modules/angular2/node_modules/rx/dist/rx.js'
+//     },
+//     meta: {
+//       rx: {
+//         format: 'cjs'
+//       }
+//     }
+//   });
+//   return builder.build('angular2/angular2', './lib/angular2.js', {});
+// });
+
+gulp.task('build:angular2', function () { 
+  var builder = new Builder({ 
+    paths: { 
+      'angular2/*': 'node_modules/angular2/es6/prod/*.es6', 
+      rx: 'node_modules/angular2/node_modules/rx/dist/rx.js' 
+    }, 
     meta: {
-      rx: {
-        format: 'cjs'
-      }
-    }
-  });
-  return builder.build('angular2/angular2', './lib/angular2.js', {});
-});
+     rx: {
+      format: 'cjs' 
+      } 
+    } 
+  }); 
+  builder.build('angular2/router', './lib/router.js', {}); 
+  builder.build('angular2/forms', './lib/forms.js', {}); 
+  return builder.build('angular2/angular2', './lib/angular2.js', {}); });
 
 gulp.task('build:lib', ['build:angular2'], function () {
   gulp.src([
@@ -61,7 +77,7 @@ gulp.task('build', ['clean'], function () {
 });
 
 gulp.task('serve', ['build:lib', 'build'], function () {
-  var port = 5555;
+  var port = 8080;
   var app;
 
   gulp.watch('./ts/**', ['build']);

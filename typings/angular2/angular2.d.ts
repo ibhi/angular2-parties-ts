@@ -767,3 +767,12 @@ declare module "angular2/router" {
   var RouteConfigAnnotation: any;
   var RouteConfig: any;
 }
+
+declare module "angular2/forms" {
+   var FormBuilder: FormBuilder;
+   var Validators: any;
+   var formDirectives: any;
+   var ControlGroup: ControlGroup;
+   interface ControlGroup {group: any, valid: boolean, value: any}
+   interface FormBuilder {group: any}
+}

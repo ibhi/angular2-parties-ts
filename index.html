@@ -5,7 +5,7 @@
   <title></title>
 </head>
 <body>
-  <sample-app></sample-app>
+  <parties-app></parties-app>
 <script src="./lib/traceur-runtime.js"></script>
 <script src="./lib/es6-module-loader-sans-promises.js"></script>
 <script src="./lib/Reflect.js"></script>
@@ -15,6 +15,12 @@
 
 <script>
 System.baseURL += 'dev/';
+// System.config({
+//         paths: {
+//           '*': '*.js',
+//           'angular2/*': 'angular2/*',
+//         }
+// });
 System.import('./app')
   .catch(function (e) {
     console.error(e,

@@ -1,28 +1,17 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
 import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
-
-import {NamesList} from './services/NameList';
+import {PartiesList} from './parties-list'
 
 @Component({
-  selector: 'sample-app',
-  appInjector: [NamesList]
+  selector: 'parties-app',
 })
 @View({
-  templateUrl: './templates/sample-app.html',
-  directives: [NgFor]
+  templateUrl: './templates/parties-app.html',
+  directives: [PartiesList]
 })
-class SampleApp {
-  names: Array<string>;
-  newName: string;
-
-  constructor(list: NamesList) {
-    this.names = list.get();
-    this.newName = '';
-  }
-  addName(newname) {
-    this.names.push(newname.value);
-    newname.value = '';
+class PartiesApp {
+  constructor() {
   }
 }
 
-bootstrap(SampleApp);
+bootstrap(PartiesApp);
