@@ -43,8 +43,8 @@ gulp.task('build:angular2', function () {
       } 
     } 
   }); 
-  builder.build('angular2/router', './lib/router.js', {}); 
-  builder.build('angular2/forms', './lib/forms.js', {}); 
+  // builder.build('angular2/router', './lib/router.js', {}); 
+  // builder.build('angular2/forms', './lib/forms.js', {}); 
   return builder.build('angular2/angular2', './lib/angular2.js', {}); });
 
 gulp.task('build:lib', ['build:angular2'], function () {

@@ -1,6 +1,6 @@
 <h1>This is awesome parties app</h1>
 <ul>
-	<li *for = "#party of parties">
+	<li *ng-for = "#party of parties">
 		<p>Title: {{party.title}}</p>
 		<p>Description: {{party.description}}</p>
 	</li>
@@ -8,5 +8,5 @@
 <form [control-group]="party" >
 	<input control="title">
 	<input control="description">
-	<button (click)="addParty()">Add New Party</button>
+	<button (click)="addParty($event)">Add New Party</button>
 </form>

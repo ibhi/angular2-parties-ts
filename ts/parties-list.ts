@@ -31,7 +31,8 @@ export class PartiesList{
 		)
 	}
 
-	addParty(){
+	addParty(event){
+		event.preventDefault();
 		this.partiesService.addParty(this.party.value);
 	}
 

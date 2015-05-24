@@ -1,6 +1,6 @@
 import {IParty} from '../models/parties-model';
 import {Injectable} from  'angular2/di';
-@Injectable
+@Injectable()
 export class PartiesService{
 	parties: Array<IParty>;
 	constructor() {
